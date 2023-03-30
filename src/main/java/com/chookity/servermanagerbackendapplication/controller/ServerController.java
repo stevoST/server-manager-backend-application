@@ -1,4 +1,4 @@
-package com.chookity.servermanagerbackendapplication.resource;
+package com.chookity.servermanagerbackendapplication.controller;
 
 import com.chookity.servermanagerbackendapplication.enumeration.Status;
 import com.chookity.servermanagerbackendapplication.model.Response;
@@ -20,7 +20,7 @@ import java.util.Map;
 @RestController
 @RequestMapping("/server")
 @RequiredArgsConstructor
-public class ServerResource {
+public class ServerController {
     //TODO tight coupling
     private final ServerServiceImpl serverService;
 

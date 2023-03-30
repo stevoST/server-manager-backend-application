@@ -1,7 +1,6 @@
 spring:
   datasource:
     username: root
-    password: admin
     url: jdbc:mysql://localhost:3306/serverdb
   jpa:
     hibernate:
