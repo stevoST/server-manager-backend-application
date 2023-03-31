@@ -6,12 +6,14 @@ import com.chookity.servermanagerbackendapplication.model.Server;
 import com.chookity.servermanagerbackendapplication.service.impl.ServerServiceImpl;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.time.LocalDateTime;
@@ -92,7 +94,7 @@ public class ServerController {
 
     @GetMapping(path = "/image/{fileName}", produces = MediaType.IMAGE_PNG_VALUE)
     public byte[] getServerImage(@PathVariable("fileName") final String fileName) throws IOException {
-        //TODO change to relativePath
-        return Files.readAllBytes(Paths.get(System.getProperty("user.home") + "Downloads/images/" + fileName));
+        final InputStream inputStream = new ClassPathResource("icons/" + fileName).getInputStream();
+        return inputStream.readAllBytes();
     }
 }
