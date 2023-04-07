@@ -28,6 +28,8 @@ public class ServerController {
 
     @GetMapping("/list")
     public ResponseEntity<Response> getServers() {
+        //TODO exception handling
+//        throw new RuntimeException("Something went wrong");
         return ResponseEntity.ok(
                 Response.builder()
                         .timeStamp(LocalDateTime.now())
